@@ -135,8 +135,8 @@ public class GradeCalculatorTest {
     // (between the buggy threshold of 45 and correct threshold of 40)
     @Test
     public void testExamAdmission_Between40And45() {
-        // YOUR CODE HERE
-        fail("TODO: Implement this test");
+        assertTrue("Student with 42 should be admitted", calculator.hasExamAdmission(42));
+        
     }
 
     // =====================================================================
@@ -165,9 +165,8 @@ public class GradeCalculatorTest {
     // TODO: Write a test for class average with 5 students
     @Test
     public void testClassAverage_FiveStudents() {
-        // YOUR CODE HERE — use marks: 45, 55, 65, 75, 85
-        // Expected average: 65.0
-        fail("TODO: Implement this test");
+        double[] marks = {45, 55, 65, 75, 85};
+        assertEquals(65.0, calculator.calculateClassAverage(marks), 0.01);
     }
 
     // =====================================================================
@@ -193,8 +192,9 @@ public class GradeCalculatorTest {
     // TODO: Write a test for pass rate where no students pass
     @Test
     public void testPassRate_NonePass() {
-        // YOUR CODE HERE
-        fail("TODO: Implement this test");
+        double[] marks = {30, 40, 45};
+        assertEquals(0.0, calculator.calculatePassRate(marks), 0.01);
+        
     }
 
     // =====================================================================
@@ -216,8 +216,8 @@ public class GradeCalculatorTest {
     // TODO: Write a test where highest mark is at the beginning of the array
     @Test
     public void testHighestMark_FirstElement() {
-        // YOUR CODE HERE
-        fail("TODO: Implement this test");
+        double[] marks = {95, 70, 80, 60};
+        assertEquals(95.0, calculator.findingHighestMark(marks), 0.01);
     }
 
     // =====================================================================
@@ -283,7 +283,6 @@ public class GradeCalculatorTest {
     // TODO: Write a test for mark value of 105 (should be invalid)
     @Test
     public void testValidMark_WayOver100() {
-        // YOUR CODE HERE
-        fail("TODO: Implement this test");
+        assertFalse(calculator,isValidMark(105));
     }
 }
