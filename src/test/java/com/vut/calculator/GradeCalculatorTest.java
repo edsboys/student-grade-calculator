@@ -283,6 +283,6 @@ public class GradeCalculatorTest {
     // TODO completed
     @Test
     public void testValidMark_WayOver100(){
-        assertFalse(calculator.isValidMark(105))
+        assertFalse(calculator.isValidMark(105));
     }
 }
