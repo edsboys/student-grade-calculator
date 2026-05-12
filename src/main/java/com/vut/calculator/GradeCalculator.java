@@ -73,7 +73,7 @@ public class GradeCalculator {
         for (double mark : marks) {
             total += mark;
         }
-        return Math.round((total / (marks.length) * 100.0) / 100.0;
+        return Math.round((total / marks.length) * 100.0) / 100.0;
     }
 
     /**
@@ -133,14 +133,14 @@ public class GradeCalculator {
      * Contains BUG #9: Report shows "ADMITTED" even when student is NOT admitted
      * (the condition is inverted)
      */
-    public String generateStudentReport(String studentName, double semesterMark, do
+    public String generateStudentReport(String studentName, double semesterMark, double examMark) {
         StringBuilder report = new StringBuilder();
         report.append("=== Student Report ===\n");
         report.append("Name: ").append(studentName).append("\n");
         report.append("Semester Mark: ").append(semesterMark).append("\n");
 
-        // BUG: Condition is inverted - shows ADMITTED when NOT admitted
-        if (!hasExamAdmission(semesterMark)) {
+        // Show correct admission status
+        if (hasExamAdmission(semesterMark)) {
             report.append("Exam Admission: ADMITTED\n");
             report.append("Exam Mark: ").append(examMark).append("\n");
             double finalMark = calculateFinalMark(semesterMark, examMark);
