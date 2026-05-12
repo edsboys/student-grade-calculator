@@ -73,7 +73,7 @@ public class GradeCalculator {
         for (double mark : marks) {
             total += mark;
         }
-        return Math.round((total / marks.length) * 100.0) / 100.0;
+       return Math.round((total / (marks.length)) * 100.0) / 100.0;
     }
 
     /**
@@ -125,7 +125,7 @@ public class GradeCalculator {
      * Currently returns true for any value
      */
     public boolean isValidMark(double mark) {
-        return mark >= 0 && mark <= 110;
+        return mark >= 0 && mark <= 100;
     }
 
     /**
@@ -139,8 +139,8 @@ public class GradeCalculator {
         report.append("Name: ").append(studentName).append("\n");
         report.append("Semester Mark: ").append(semesterMark).append("\n");
 
-        // Show correct admission status
-        if (hasExamAdmission(semesterMark)) {
+        // BUG: Condition is inverted - shows ADMITTED when NOT admitted
+        if (!hasExamAdmission(semesterMark)) {
             report.append("Exam Admission: ADMITTED\n");
             report.append("Exam Mark: ").append(examMark).append("\n");
             double finalMark = calculateFinalMark(semesterMark, examMark);
