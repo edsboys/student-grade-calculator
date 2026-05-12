@@ -52,4 +52,8 @@ jobs:
         with:
           name: surefire-test-reports
           path: target/surefire-reports/
+<<<<<<< HEAD
           retention-days: 7
+=======
+          retention-days: 7
+>>>>>>> b6c7d2ae96857580e3869cf31c9ff8d8c1443a94
