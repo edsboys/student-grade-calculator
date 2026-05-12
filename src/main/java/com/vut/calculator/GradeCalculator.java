@@ -38,7 +38,7 @@ public class GradeCalculator {
      * - Distinction should be >= 80, but uses > 80 (misses exactly 80)
      * - Pass boundary uses >= 55 instead of >= 50
      * - Merit and Credit boundaries are also shifted
-     */git 
+     */
     public String determineGrade(double finalMark) {
         if (finalMark >= 80) {
             return "Distinction";
@@ -73,7 +73,7 @@ public class GradeCalculator {
         for (double mark : marks) {
             total += mark;
         }
-        return Math.round((total / (marks.length) * 100.0) / 100.0;
+       return Math.round((total / (marks.length)) * 100.0) / 100.0;
     }
 
     /**
